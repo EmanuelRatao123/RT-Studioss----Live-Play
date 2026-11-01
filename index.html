@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RT Studios - Live Games</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Tela de Login -->
+    <div id="login-screen" class="screen active">
+        <div class="login-box">
+            <h1>🎮 RT Studios <br><span>Live Interactive</span></h1>
+            <input type="text" id="tiktok-nick" placeholder="Seu @ do TikTok (ex: emanuell)">
+            <button onclick="conectarTikTok()">Conectar e Iniciar</button>
+            <p id="login-status"></p>
+        </div>
+    </div>
+
+    <!-- Dashboard -->
+    <div id="dashboard-screen" class="screen">
+        <header>
+            <div class="profile-info">
+                <img id="profile-pic" src="" alt="Foto de Perfil">
+                <div>
+                    <h2>Bem-vindo, <span id="display-nick"></span>!</h2>
+                    <p>Status: <span class="status-online">🟢 Online</span></p>
+                </div>
+            </div>
+            <button class="btn-danger" onclick="desconectar()">Desconectar</button>
+        </header>
+
+        <main>
+            <h3>Escolha um Jogo Interativo</h3>
+            <div class="games-grid" id="games-grid">
+                <!-- Os 10 jogos serão gerados aqui pelo JavaScript -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Tela do Jogo e Overlay -->
+    <div id="game-screen" class="screen">
+        <div class="game-header">
+            <button class="btn-voltar" onclick="voltarDashboard()"><i class="fas fa-arrow-left"></i> Voltar</button>
+            <h2 id="current-game-title">Nome do Jogo</h2>
+        </div>
+        
+        <!-- Onde o jogo acontece -->
+        <canvas id="game-canvas"></canvas>
+
+        <!-- Painel para simular presentes (já que site estático não conecta direto no TikTok) -->
+        <div class="test-panel">
+            <h4>🧪 Painel de Teste (Simulador de Presentes)</h4>
+            <div class="gift-buttons">
+                <button onclick="simularPresente('Rosa')">🌹 Rosa (Gera Item)</button>
+                <button onclick="simularPresente('Sorvete')">🍦 Sorvete (Ataque)</button>
+                <button onclick="simularPresente('Coração')">💖 Coração (Cura/Defesa)</button>
+                <button onclick="simularPresente('Leão')">🦁 Leão (Evento Épico!)</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
